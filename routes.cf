@@ -1,7 +1,7 @@
 {
 
 	Here all routes of site.
-
+1867256706:AAHca7ts3DcGDFxF8iz0bB1euoTAJY4d1hY
 }
 
 { index }
@@ -10,7 +10,7 @@ models: ;
 controllers: ;
 view: site/index.php;
 
-name:;
-models: ;
-controllers: ;
-view: site/index.php;
+name:api;
+models:;
+controllers: Api;
+view: ;

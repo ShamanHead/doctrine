@@ -29,8 +29,8 @@ for($i = 0; $i < count($routes);$i++){
 	}
 }
 
-if(!$finded){
-	Header('Location:http://'.$_SERVER['SERVER_NAME'].'/'.Core::getConfig()['when_root_not_found']);
-}
+//if(!$finded){
+//	Header('Location:http://'.$_SERVER['SERVER_NAME'].'/'.Core::getConfig()['when_root_not_found']);
+//}
 
 ?>
