@@ -1,0 +1,16 @@
+{
+
+	Here all routes of site.
+
+}
+
+{ index }
+name:404;
+models: ;
+controllers: ;
+view: site/index.php;
+
+name:;
+models: ;
+controllers: ;
+view: site/index.php;
