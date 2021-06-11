@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "21d8e80b25d5787cbe32e6faba95ff79",
+    "content-hash": "bb05fb0745df839816b9dd267176c9bf",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1496,6 +1496,49 @@
             "time": "2021-05-03T11:20:27+00:00"
         },
         {
+            "name": "shamanhead/telbot",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ShamanHead/telbot.git",
+                "reference": "c1ccc155eeb2476dbba871c9475637310b9df2b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ShamanHead/telbot/zipball/c1ccc155eeb2476dbba871c9475637310b9df2b4",
+                "reference": "c1ccc155eeb2476dbba871c9475637310b9df2b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A simple library to create message bot in telegram",
+            "homepage": "https://packagist.org/packages/shamanhead/telbot",
+            "keywords": [
+                "TelegramAPI",
+                "bot",
+                "package",
+                "php",
+                "telegram"
+            ],
+            "support": {
+                "issues": "https://github.com/ShamanHead/telbot/issues",
+                "source": "https://github.com/ShamanHead/telbot/tree/master"
+            },
+            "time": "2021-06-11T23:10:47+00:00"
+        },
+        {
             "name": "slim/slim",
             "version": "4.8.0",
             "source": {
@@ -2479,7 +2522,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "shamanhead/telbot": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
