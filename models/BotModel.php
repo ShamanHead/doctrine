@@ -41,10 +41,10 @@ class BotModel
 
     public function sqlCredentials(array $credits)
     {
-        $bot->sqlCredentials(
+        $this->bot->sqlCredentials(
             $credits
         );
-        $bot->enableSql();
+        $this->bot->enableSql();
 
         return true;
     }
