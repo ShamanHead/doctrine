@@ -23,7 +23,7 @@ class BotModel
 
     ];
 
-    public function createBot(string $token){
+    function __construct(string $token){
         $this->InputHandle = new InputHandle();
         $this->bot = new Bot($token);
         return true;
@@ -34,7 +34,7 @@ class BotModel
     }
 
     public function sendMessage($preset){
-        Inquiry::send($bot, 'sendMessage', [
+        Inquiry::send($this->bot, 'sendMessage', [
             'chat_id' => $this->InputHandle->getChatId(),
             'text' => $this->messagePresets[$preset]
 
