@@ -10,7 +10,8 @@ models: ;
 controllers: ;
 view: site/index.php;
 
-name:api;
-models:;
-controllers: Api;
+{ bot }
+name: bot;
+models: Bot;
+controllers: Bot;
 view: ;
