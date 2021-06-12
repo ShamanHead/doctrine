@@ -48,14 +48,14 @@ class BotModel
         return $this->bot;
     }
 
-    public function getMessagePreset(string $preset) : string
+    public function getMessagePreset(string $preset)
     {
         $mesPresets = $this->messagePresets;
         $langTable = $this->languageTable;
         $lang = $this->language;
         for($i = 0, $ltKeys = array_keys($langTable);$i < count($ltKeys);$i++){
-            if($langTable[$ltKeys[$i]] == $lang){
-                $offset = $langTable[$i];
+            if($ltKeys[$i] == $lang){
+                $offset = $langTable[$ltKeys[$i]];
                 for($j = 0, $msKeys = array_keys($mesPresets);$j < count($msKeys);$j++){
                     if($preset == $msKeys[$j]){
                         return $mesPresets[$msKeys[$j]][$offset];

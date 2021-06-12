@@ -4,6 +4,8 @@ namespace Colyt;
 
 use \PDO as PDO;
 
+require_once "vendor/autoload.php";
+
 class Core{
 
 	private static $config = [

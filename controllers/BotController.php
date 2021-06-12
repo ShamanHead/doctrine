@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-require_once "vendor/autoload.php";
-
 use Colyt\Core as Core;
 
 //$route = $_GET['route'];
