@@ -38,6 +38,26 @@ class BotModel
         return true;
     }
 
+    public function sqlCredentials(array $credits)
+    {
+        $bot->sqlCredentials(
+            $credits
+        );
+        $bot->enableSql();
+
+        return true;
+    }
+
+    public function setContext(string $context)
+    {
+        Context::write($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId(), 'smth');
+    }
+
+    public function getContext() : string
+    {
+        return Context::read($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId());
+    }
+
     public function setLanguage(string $language)
     {
         $this->language = $language;
