@@ -12,7 +12,8 @@ class BotModel
     private $bot;
 
     private $messagePresets = [
-      'hello' => ['Добро пожаловать!', 'Hello there']
+      'hello' => ['Добро пожаловать!', 'Hello there'],
+      'choose language' => ['Пожалуйста, выберите язык', 'Please, choose your language']
     ];
 
     private $keyboardPresets = [
