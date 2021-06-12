@@ -2,6 +2,7 @@
 
 namespace Model;
 
+use \Telbot\Context as Context;
 use \Telbot\Bot as Bot;
 use \Telbot\Inquiry as Inquiry;
 use \Telbot\InputHandle as InputHandle;
