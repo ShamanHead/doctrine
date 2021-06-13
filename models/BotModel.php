@@ -27,7 +27,26 @@ class BotModel
     private $flow;
 
     private $keyboardPresets = [
-
+        'main' => [
+            [
+                [
+                    ['Мои заметки']
+                ],
+                [
+                    ['О проекте'],
+                    ['Настройки']
+                ]
+            ],
+            [
+                [
+                    ['My notes']
+                ],
+                [
+                    ['About'],
+                    ['Settings']
+                ]
+            ]
+        ]
     ];
 
     private $inlinePresets = [
@@ -77,14 +96,14 @@ class BotModel
         return $this->InputHandle->getCallbackData();
     }
 
-    public function sendInlineQuery($preset)
+    public function sendInlineKeyboard($preset)
     {
         $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($this->getPreset($preset, 'inline'))]);
     }
 
     public function sendKeyboard($preset)
     {
-
+        $this->addToFlow(['reply_markup' => Utils::buildKeyboard($this->getPreset($preset, 'keyboard'))]);
     }
 
     public function setContext(string $context)
