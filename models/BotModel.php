@@ -58,7 +58,7 @@ class BotModel
     private function addToFlow(array $data)
     {
         for($i = 0, $keys = array_keys($data);$i < count($keys);$i++){
-            $this->flow[$keys[$i]] = $data[$i];
+            $this->flow[$keys[$i]] = $data[$keys[$i]];
         }
     }
 
