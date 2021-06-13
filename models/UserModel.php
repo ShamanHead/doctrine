@@ -5,9 +5,10 @@ namespace Model;
 class UserModel
 {
 
-    function __construct(string $userId){
+    function __construct($entityManager,string $userId){
         $this->userId = $userId;
-        $repo = $entityManager->getRepository('User');
+        $this->EM = $entityManager;
+        $repo = $this->EM->getRepository('User');
         $this->instanse = $repo->findBy([
             'userId' => $userId
         ]);
@@ -18,6 +19,6 @@ class UserModel
     }
 
     public function flush(){
-        $entityManager->flush();
+        $this->EM->flush();
     }
 }

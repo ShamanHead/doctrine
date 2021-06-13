@@ -20,7 +20,7 @@ $botModel->sqlCredentials(
 
 $__CONTEXT = $botModel->getContext();
 $__CALLBACK_DATA = $botModel->getCallBackData();
-$user = new User($botModel->getUserId());
+$user = new User($entityManager,$botModel->getUserId());
 
 switch($__CALLBACK_DATA){
     case 'lanch_ru':
