@@ -26,7 +26,7 @@ $metadata->mapField(array(
     'type' => 'string',
     'length' => 10,
     'options' => [
-        'default' => ''
+        'default' => 'en'
     ]
 ));
 
@@ -41,7 +41,7 @@ $metadata->mapField(array(
     'type' => 'string',
     'length' => 100,
     'options' => [
-        'default' => ''
+        'default' => 'default'
     ]
 ));
 
