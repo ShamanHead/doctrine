@@ -17,7 +17,7 @@ class BotModel
 
     private $messagePresets = [
       'hello' => ['Добро пожаловать!', 'Hello there'],
-      'choose language' => ['Пожалуйста, выберите язык', 'Please, choose your language']
+      'langchse' => ['Please, choose your language', 'Please, choose your language']
     ];
 
     private $flow;
