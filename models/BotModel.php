@@ -19,11 +19,11 @@ class BotModel
     ];
 
     private $keyboardPresets = [
-        'langchse' => [[[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]], [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]]
+
     ];
 
     private $inlinePresets = [
-
+        'langchse' => [[[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]], [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]]
     ];
 
     private $languageTable = [
@@ -111,7 +111,7 @@ class BotModel
             }
         }
 
-        throw new \Exception('Language not found');
+        throw new \Exception('Preset not found');
     }
 
     public function sendMessage(string $preset)
