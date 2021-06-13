@@ -29,6 +29,7 @@ switch($__CALLBACK_DATA){
             $botModel->run('sendMessage');
         }else{
             $botModel->sendMessage('error');
+            $botModel->run('sendMessage');
         }
         break;
     case 'lanch_eng':
@@ -39,7 +40,7 @@ switch($__CALLBACK_DATA){
             $botModel->run('sendMessage');
         }else{
             $botModel->sendMessageAnyWay('хуй саси губой тряси');
-            $botModel->sendMessage('error');
+            $botModel->run('sendMessage');
         }
         break;
 }
