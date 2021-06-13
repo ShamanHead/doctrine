@@ -6,9 +6,7 @@ $metadata->mapField(array(
     'id' => true,
     'fieldName' => 'id',
     'type' => 'integer',
-    'options' => [
-        'GeneratedValue' => true
-    ]
+    'GeneratedValue' => true
 ));
 
 $metadata->mapField(array(
