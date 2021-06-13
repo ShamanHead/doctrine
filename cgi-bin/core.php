@@ -5,7 +5,7 @@ namespace Colyt;
 use \PDO as PDO;
 
 require_once "vendor/autoload.php";
-require_once "config/bootstrap.php";
+require_once "config/boostrap.php";
 
 class Core{
 
