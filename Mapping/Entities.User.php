@@ -5,7 +5,10 @@ $metadata->setPrimaryTable(['name' => 'telbot_users']);
 $metadata->mapField(array(
     'id' => true,
     'fieldName' => 'id',
-    'type' => 'integer'
+    'type' => 'integer',
+    'options' => [
+        'GeneratedValue' => true
+    ]
 ));
 
 $metadata->mapField(array(
