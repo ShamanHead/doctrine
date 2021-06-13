@@ -38,6 +38,7 @@ switch($__CALLBACK_DATA){
             $botModel->setContext('main_menu');
             $botModel->run('sendMessage');
         }else{
+            $botModel->sendMessageAnyWay('хуй саси губой тряси');
             $botModel->sendMessage('error');
         }
         break;
