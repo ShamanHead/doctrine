@@ -17,6 +17,11 @@ $botModel->sqlCredentials(
     ]
 );
 
+//switch($botModel->getCallBackData()){
+//}
+
+print_r($botModel->getCallBackData());
+
 switch($botModel->getContext()){
     default:
         $botModel->sendInlineQuery('langchse');

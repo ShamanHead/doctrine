@@ -62,6 +62,10 @@ class BotModel
         }
     }
 
+    public function getCallBackData(){
+        return $this->InputHandle->getCallbackData();
+    }
+
     public function sendInlineQuery($preset){
         $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($this->getPreset($preset, 'inline'))]);
     }
