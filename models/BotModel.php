@@ -14,6 +14,8 @@ class BotModel
 
     private $bot;
 
+    private $token;
+
     private $InputHandle;
 
     private $messagePresets = [
@@ -43,6 +45,7 @@ class BotModel
     {
         $this->InputHandle = new InputHandle();
         $this->bot = new Bot($token);
+        $this->token = $token;
         $this->addToFlow(['chat_id' => $this->InputHandle->getChatId()]);
         User::add($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId());
         return true;
@@ -155,6 +158,14 @@ class BotModel
 
     public function getUserId(){
         return $this->InputHandle->getUserId();
+    }
+
+    public function getChatId(){
+        return $this->InputHandle->getChatId();
+    }
+
+    public function getToken(){
+        return $this->token;
     }
 
     public function run($method)

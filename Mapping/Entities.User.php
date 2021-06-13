@@ -41,5 +41,8 @@ $metadata->mapField(array(
 $metadata->mapField(array(
     'fieldName' => 'privilege',
     'type' => 'integer',
-    'length' => 3
+    'length' => 3,
+    'options' => [
+        'default' => 0
+    ]
 ));
