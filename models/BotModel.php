@@ -46,6 +46,10 @@ class BotModel
         return true;
     }
 
+    public function deleteContext(){
+        Context::delete($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId());
+    }
+
     public function sqlCredentials(array $credits)
     {
         $this->bot->sqlCredentials(
