@@ -1,12 +1,12 @@
 <?php
 
 $metadata->setPrimaryTable(['name' => 'telbot_users']);
+$metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
 
 $metadata->mapField(array(
     'id' => true,
     'fieldName' => 'id',
-    'type' => 'integer',
-    'generatedValue' => true
+    'type' => 'integer'
 ));
 
 $metadata->mapField(array(
