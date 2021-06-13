@@ -14,11 +14,11 @@ class User
 
     protected $botToken;
 
-    protected $context;
+    protected $context = '';
 
-    protected $privilege;
+    protected $privilege = 0;
 
-    protected $language;
+    protected $language = 'ru';
 
     /**
      * @return mixed
