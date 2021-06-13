@@ -17,12 +17,9 @@ $botModel->sqlCredentials(
     ]
 );
 
-//switch($botModel->getContext()){
-//    default:
-//
-//        $botModel->setContext('langchse');
-//        break;
-//}
-
-$botModel->sendMessage('hello');
-$botModel->setContext('langchse');
+switch($botModel->getContext()){
+    default:
+        $botModel->sendInlineQuery('langchse');
+        $botModel->setContext('langchse');
+        break;
+}

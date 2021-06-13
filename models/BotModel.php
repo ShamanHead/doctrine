@@ -6,6 +6,7 @@ use \Telbot\Context as Context;
 use \Telbot\Bot as Bot;
 use \Telbot\Inquiry as Inquiry;
 use \Telbot\InputHandle as InputHandle;
+use \Telbot\Utils as Utils;
 
 class BotModel
 {
@@ -18,7 +19,7 @@ class BotModel
     ];
 
     private $keyboardPresets = [
-        'langchse' => [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]
+        'langchse' => [[[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]], [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]]
     ];
 
     private $inlinePresets = [
@@ -50,7 +51,10 @@ class BotModel
     }
 
     public function sendInlineQuery($preset){
-
+        Inquiry::send($this->bot, 'sendMessage', [
+            'chat_id' => $this->InputHandle->getChatId(),
+            'reply_markup' => Utils::buildInlineKeyboard($this->getPreset('langchse', 'inline'))
+        ]);
     }
 
     public function sendKeyboard($preset){
@@ -115,7 +119,6 @@ class BotModel
         Inquiry::send($this->bot, 'sendMessage', [
             'chat_id' => $this->InputHandle->getChatId(),
             'text' => $this->getPreset($preset, 'message')
-
         ]);
     }
 
