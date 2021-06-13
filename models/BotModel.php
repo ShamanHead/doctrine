@@ -13,10 +13,14 @@ class BotModel
 
     private $bot;
 
+    private $InputHandle;
+
     private $messagePresets = [
       'hello' => ['Добро пожаловать!', 'Hello there'],
       'choose language' => ['Пожалуйста, выберите язык', 'Please, choose your language']
     ];
+
+    private $flow;
 
     private $keyboardPresets = [
 
@@ -37,6 +41,7 @@ class BotModel
     {
         $this->InputHandle = new InputHandle();
         $this->bot = new Bot($token);
+        $this->addToFlow(['chat_id' => $this->InputHandle->getChatId()]);
         return true;
     }
 
@@ -50,11 +55,15 @@ class BotModel
         return true;
     }
 
+    private function addToFlow(array $data)
+    {
+        for($i = 0, $keys = array_keys($data);$i < count($keys);$i++){
+            $this->flow[$keys[$i]] = $data[$i];
+        }
+    }
+
     public function sendInlineQuery($preset){
-        Inquiry::send($this->bot, 'sendMessage', [
-            'chat_id' => $this->InputHandle->getChatId(),
-            'reply_markup' => Utils::buildInlineKeyboard($this->getPreset('langchse', 'inline'))
-        ]);
+        $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($this->getPreset($preset, 'inline'))]);
     }
 
     public function sendKeyboard($preset){
@@ -116,10 +125,14 @@ class BotModel
 
     public function sendMessage(string $preset)
     {
-        Inquiry::send($this->bot, 'sendMessage', [
-            'chat_id' => $this->InputHandle->getChatId(),
+        $this->addToFlow([
             'text' => $this->getPreset($preset, 'message')
         ]);
+    }
+
+    public function run($method){
+        Inquiry::send($this->bot, $method, $this->flow);
+        $this->flow = ['chat_id' => $this->InputHandle->getChatId()];
     }
 
 }

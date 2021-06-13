@@ -20,6 +20,8 @@ $botModel->sqlCredentials(
 switch($botModel->getContext()){
     default:
         $botModel->sendInlineQuery('langchse');
+        $botModel->sendMessage('langchse');
+        $botModel->run('sendMessage');
         $botModel->setContext('langchse');
         break;
 }
