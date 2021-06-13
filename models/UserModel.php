@@ -26,11 +26,16 @@ class UserModel
             $user->setBotToken($this->token);
             $this->EM->persist($user);
             $this->EM->flush();
+            $this->instanse = $user;
+        }else{
+            $this->instanse = $entities[0];
         }
     }
 
     public function setLanguage(string $lang){
         $this->instanse->setLanguage($lang);
+        $this->EM->persist($this->instanse);
+        $this->EM->flush();
     }
 
     public function getInstanse(){
