@@ -42,6 +42,10 @@ class UserModel
         return $this->instanse;
     }
 
+    public function getLanguage(){
+        return $this->instanse->getLanguage();
+    }
+
     public function flush(){
         $this->EM->flush();
     }
