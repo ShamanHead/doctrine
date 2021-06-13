@@ -25,7 +25,7 @@ switch($__CALLBACK_DATA){
         if($__CONTEXT == 'langchse'){
             $botModel->setLanguage('ru');
             $botModel->sendMessage('hello');
-            $botModel->deleteContext();
+            $botModel->setContext('main_menu');
             $botModel->run('sendMessage');
         }else{
             $botModel->sendMessage('error');
@@ -35,7 +35,7 @@ switch($__CALLBACK_DATA){
         if($__CONTEXT == 'langchse'){
             $botModel->setLanguage('en');
             $botModel->sendMessage('hello');
-            $botModel->deleteContext();
+            $botModel->setContext('main_menu');
             $botModel->run('sendMessage');
         }else{
             $botModel->sendMessage('error');
