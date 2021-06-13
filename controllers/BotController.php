@@ -27,6 +27,7 @@ switch($__CALLBACK_DATA){
     case 'lanch_ru':
         if($__CONTEXT == 'langchse'){
             $__USER->setLanguage('ru');
+            $botModel->setLanguage('ru');
             $botModel->sendMessage('hello');
             $botModel->sendKeyboard('main');
             $botModel->setContext('main_menu');
@@ -39,6 +40,7 @@ switch($__CALLBACK_DATA){
     case 'lanch_eng':
         if($__CONTEXT == 'langchse'){
             $__USER->setLanguage('en');
+            $botModel->setLanguage('en');
             $botModel->sendMessage('hello');
             $botModel->sendKeyboard('main');
             $botModel->setContext('main_menu');
