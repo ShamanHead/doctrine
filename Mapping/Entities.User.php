@@ -1,7 +1,7 @@
 <?php
 
 $metadata->setPrimaryTable(['name' => 'telbot_users']);
-$metadata->setIdGenerator(new \Doctrine\ORM\Id\AssignedGenerator());
+$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_AUTO);
 
 $metadata->mapField(array(
     'id' => true,
