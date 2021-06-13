@@ -18,7 +18,13 @@ $botModel->sqlCredentials(
 );
 
 switch($botModel->getCallBackData()){
-    case 'langchse':
+    case 'lanch_ru':
+        $botModel->setLanguage('en');
+        $botModel->sendMessage('hello');
+        $botModel->run('sendMessage');
+        break;
+    case 'lanch_eng':
+        $botModel->setLanguage('ru');
         $botModel->sendMessage('hello');
         $botModel->run('sendMessage');
         break;
