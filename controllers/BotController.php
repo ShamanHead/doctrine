@@ -20,12 +20,13 @@ $botModel->sqlCredentials(
 
 $__CONTEXT = $botModel->getContext();
 $__CALLBACK_DATA = $botModel->getCallBackData();
-$user = new User($entityManager,$botModel->getUserId());
+$__USER = new User($entityManager,$botModel->getUserId());
 
 switch($__CALLBACK_DATA){
     case 'lanch_ru':
         if($__CONTEXT == 'langchse'){
             $botModel->setLanguage('ru');
+            $__USER->setLanguage('ru');
             $botModel->sendMessage('hello');
             $botModel->setContext('main_menu');
             $botModel->run('sendMessage');
@@ -37,11 +38,12 @@ switch($__CALLBACK_DATA){
     case 'lanch_eng':
         if($__CONTEXT == 'langchse'){
             $botModel->setLanguage('en');
+            $__USER->setLanguage('en');
             $botModel->sendMessage('hello');
             $botModel->setContext('main_menu');
             $botModel->run('sendMessage');
         }else{
-            $botModel->sendMessageAnyWay('хуй саси губой тряси');
+            $botModel->sendMessage('error');
             $botModel->run('sendMessage');
         }
         break;
