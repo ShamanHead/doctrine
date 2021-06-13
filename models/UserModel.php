@@ -18,6 +18,7 @@ class UserModel
             'chatId' => $this->chatId,
             'botToken' => $this->token
         ]);
+        $this->instanse = $entities;
         if(count($entities) == 0){
             $user = new User();
             $user->setChatId($this->chatId);
@@ -30,6 +31,10 @@ class UserModel
 
     public function setLanguage(string $lang){
         $this->instanse->setLanguage($lang);
+    }
+
+    public function getInstanse(){
+        return $this->instanse;
     }
 
     public function flush(){
