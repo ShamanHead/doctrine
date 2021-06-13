@@ -19,7 +19,7 @@ class BotModel
 
     private $keyboardPresets = [
         'langchse' => [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]
-    ];🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧
+    ];
 
     private $inlinePresets = [
 
