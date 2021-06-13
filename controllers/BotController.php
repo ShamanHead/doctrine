@@ -21,17 +21,16 @@ switch($botModel->getCallBackData()){
     case 'langchse':
         $botModel->sendMessage('hello');
         $botModel->run('sendMessage');
-        die();
         break;
 }
 
-//print_r($botModel->getCallBackData());
-
 switch($botModel->getContext()){
-    default:
+    case '':
         $botModel->sendInlineQuery('langchse');
         $botModel->sendMessage('langchse');
         $botModel->run('sendMessage');
         $botModel->setContext('langchse');
         break;
 }
+
+$botModel->sendMessageAnyway(print_r($botModel->getCallBackData(), 1));

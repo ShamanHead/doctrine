@@ -135,7 +135,16 @@ class BotModel
         ]);
     }
 
-    public function run($method){
+    public function sendMessageAnyway(string $message)
+    {
+        Inquiry::send($this->bot, 'sendMessage', [
+            'chat_id' => $this->InputHandle->getChatId(),
+            'text' => $message
+        ]);
+    }
+
+    public function run($method)
+    {
         Inquiry::send($this->bot, $method, $this->flow);
         $this->flow = ['chat_id' => $this->InputHandle->getChatId()];
     }
