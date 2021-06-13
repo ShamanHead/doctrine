@@ -6,7 +6,7 @@ $metadata->mapField(array(
     'id' => true,
     'fieldName' => 'id',
     'type' => 'integer',
-    'GeneratedValue' => true
+    'generatedValue' => true
 ));
 
 $metadata->mapField(array(
