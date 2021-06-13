@@ -17,7 +17,7 @@ class BotModel
 
     private $messagePresets = [
       'hello' => ['Добро пожаловать!', 'Hello there'],
-      'langchse' => ['Please, choose your language', 'Please, choose your language']
+      'langchse' => ['Please, choose your language']
     ];
 
     private $flow;
@@ -27,7 +27,7 @@ class BotModel
     ];
 
     private $inlinePresets = [
-        'langchse' => [[[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]], [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]]
+        'langchse' => [[[['Русский', 'lanch_ru']], [['English', 'lanch_eng']]]]
     ];
 
     private $languageTable = [
@@ -72,7 +72,7 @@ class BotModel
 
     public function setContext(string $context)
     {
-        Context::write($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId(), 'smth');
+        Context::write($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId(), $context);
     }
 
     public function getContext() : string
@@ -114,6 +114,7 @@ class BotModel
                 $offset = $langTable[$ltKeys[$i]];
                 for($j = 0, $msKeys = array_keys($presets);$j < count($msKeys);$j++){
                     if($preset == $msKeys[$j]){
+                        if(!isset($presets[$msKeys[$j]][$offset])) return $presets[$msKeys[$j]][0];
                         return $presets[$msKeys[$j]][$offset];
                     }
                 }
