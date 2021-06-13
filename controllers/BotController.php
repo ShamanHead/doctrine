@@ -17,10 +17,15 @@ $botModel->sqlCredentials(
     ]
 );
 
-//switch($botModel->getCallBackData()){
-//}
+switch($botModel->getCallBackData()){
+    case 'langchse':
+        $botModel->sendMessage('hello');
+        $botModel->run('sendMessage');
+        die();
+        break;
+}
 
-print_r($botModel->getCallBackData());
+//print_r($botModel->getCallBackData());
 
 switch($botModel->getContext()){
     default:
