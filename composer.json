@@ -6,6 +6,6 @@
         "shamanhead/telbot" : "dev-master"
     },
     "autoload": {
-        "classmap": ["OrmClasses/", "vendor/"]
+        "classmap": ["Entities/", "vendor/"]
     }
 }

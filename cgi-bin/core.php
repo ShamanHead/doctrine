@@ -17,19 +17,11 @@ class Core{
 			'dbname' => 'plexfex',
 			'username' => 'sha1',
 			'password' => '2336077303Ars2200;'
-		],
-		'errors' => [
-			'404' => 'site/errors/404.html'
 		]
 	];
 
 	private $core_plugins = [
-		'120983190283' => [
-			"Name" => "Some",
-			"Author" => "ShamanHead",
-			"Rights" => [0, 1, 3, 2, 5],
-			"Description" => "some value"
-		]
+
 	];
 
 	public static function updatePluginsList(){

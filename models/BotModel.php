@@ -18,8 +18,8 @@ class BotModel
     ];
 
     private $keyboardPresets = [
-
-    ];
+        'langchse' => [[[':ru:', 'lanch_ru']], [[':gb:', 'lanch_eng']]]
+    ];🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧🇷🇺🇬🇧
 
     private $inlinePresets = [
 
@@ -49,6 +49,14 @@ class BotModel
         return true;
     }
 
+    public function sendInlineQuery($preset){
+
+    }
+
+    public function sendKeyboard($preset){
+
+    }
+
     public function setContext(string $context)
     {
         Context::write($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId(), 'smth');
@@ -69,17 +77,31 @@ class BotModel
         return $this->bot;
     }
 
-    public function getMessagePreset(string $preset)
+    public function getPreset(string $preset, string $type)
     {
-        $mesPresets = $this->messagePresets;
+        $presets = '';
+        switch($type){
+            case 'message':
+                $presets = $this->messagePresets;
+                break;
+            case 'inline':
+                $presets = $this->inlinePresets;
+                break;
+            case 'keyboard':
+                $presets = $this->keyboardPresets;
+                break;
+            default:
+                throw new \Exception('Undefined preset type in');
+        }
+
         $langTable = $this->languageTable;
         $lang = $this->language;
         for($i = 0, $ltKeys = array_keys($langTable);$i < count($ltKeys);$i++){
             if($ltKeys[$i] == $lang){
                 $offset = $langTable[$ltKeys[$i]];
-                for($j = 0, $msKeys = array_keys($mesPresets);$j < count($msKeys);$j++){
+                for($j = 0, $msKeys = array_keys($presets);$j < count($msKeys);$j++){
                     if($preset == $msKeys[$j]){
-                        return $mesPresets[$msKeys[$j]][$offset];
+                        return $presets[$msKeys[$j]][$offset];
                     }
                 }
             }
@@ -92,7 +114,7 @@ class BotModel
     {
         Inquiry::send($this->bot, 'sendMessage', [
             'chat_id' => $this->InputHandle->getChatId(),
-            'text' => $this->getMessagePreset($preset)
+            'text' => $this->getPreset($preset, 'message')
 
         ]);
     }
