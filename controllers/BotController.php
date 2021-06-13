@@ -5,6 +5,7 @@ namespace Controller;
 use Colyt\Core as Core;
 
 use Model\BotModel as BotModel;
+use Model\UserModel as User;
 
 $botModel = new BotModel('1867256706:AAHca7ts3DcGDFxF8iz0bB1euoTAJY4d1hY');
 
@@ -19,6 +20,7 @@ $botModel->sqlCredentials(
 
 $__CONTEXT = $botModel->getContext();
 $__CALLBACK_DATA = $botModel->getCallBackData();
+$user = new User($botModel->getUserId());
 
 switch($__CALLBACK_DATA){
     case 'lanch_ru':

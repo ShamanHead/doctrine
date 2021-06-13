@@ -7,6 +7,7 @@ use \Telbot\Bot as Bot;
 use \Telbot\Inquiry as Inquiry;
 use \Telbot\InputHandle as InputHandle;
 use \Telbot\Utils as Utils;
+use \Telbot\User as User;
 
 class BotModel
 {
@@ -43,6 +44,7 @@ class BotModel
         $this->InputHandle = new InputHandle();
         $this->bot = new Bot($token);
         $this->addToFlow(['chat_id' => $this->InputHandle->getChatId()]);
+        User::add($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId());
         return true;
     }
 
@@ -149,6 +151,10 @@ class BotModel
             'chat_id' => $this->InputHandle->getChatId(),
             'text' => $message
         ]);
+    }
+
+    public function getUserId(){
+        return $this->InputHandle->getUserId();
     }
 
     public function run($method)
