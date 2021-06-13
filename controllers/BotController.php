@@ -17,20 +17,31 @@ $botModel->sqlCredentials(
     ]
 );
 
-switch($botModel->getCallBackData()){
+$__CONTEXT = $botModel->getContext();
+$__CALLBACK_DATA = $botModel->getCallBackData();
+
+switch($__CALLBACK_DATA){
     case 'lanch_ru':
-        $botModel->setLanguage('en');
-        $botModel->sendMessage('hello');
-        $botModel->run('sendMessage');
+        if($__CONTEXT == 'langchse'){
+            $botModel->setLanguage('ru');
+            $botModel->sendMessage('hello');
+            $botModel->run('sendMessage');
+        }else{
+            $botModel->sendMessage('error');
+        }
         break;
     case 'lanch_eng':
-        $botModel->setLanguage('ru');
-        $botModel->sendMessage('hello');
-        $botModel->run('sendMessage');
+        if($__CONTEXT == 'langchse'){
+            $botModel->setLanguage('en');
+            $botModel->sendMessage('hello');
+            $botModel->run('sendMessage');
+        }else{
+            $botModel->sendMessage('error');
+        }
         break;
 }
 
-switch($botModel->getContext()){
+switch($__CONTEXT){
     case '':
         $botModel->sendInlineQuery('langchse');
         $botModel->sendMessage('langchse');
@@ -38,5 +49,3 @@ switch($botModel->getContext()){
         $botModel->setContext('langchse');
         break;
 }
-
-$botModel->sendMessageAnyway(print_r($botModel->getCallBackData(), 1));

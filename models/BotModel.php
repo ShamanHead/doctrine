@@ -16,8 +16,9 @@ class BotModel
     private $InputHandle;
 
     private $messagePresets = [
-      'hello' => ['Добро пожаловать!', 'Hello there'],
-      'langchse' => ['Please, choose your language']
+        'hello' => ['Добро пожаловать!', 'Hello there'],
+        'error' => ['Произошла ошибка.', 'An error has occurred'],
+        'langchse' => ['Please, choose your language']
     ];
 
     private $flow;
@@ -31,8 +32,8 @@ class BotModel
     ];
 
     private $languageTable = [
-      'ru' => 0,
-      'en' => 1
+        'ru' => 0,
+        'en' => 1
     ];
 
     private $language = 'ru';
@@ -57,20 +58,23 @@ class BotModel
 
     private function addToFlow(array $data)
     {
-        for($i = 0, $keys = array_keys($data);$i < count($keys);$i++){
+        for ($i = 0, $keys = array_keys($data); $i < count($keys); $i++) {
             $this->flow[$keys[$i]] = $data[$keys[$i]];
         }
     }
 
-    public function getCallBackData(){
+    public function getCallBackData()
+    {
         return $this->InputHandle->getCallbackData();
     }
 
-    public function sendInlineQuery($preset){
+    public function sendInlineQuery($preset)
+    {
         $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($this->getPreset($preset, 'inline'))]);
     }
 
-    public function sendKeyboard($preset){
+    public function sendKeyboard($preset)
+    {
 
     }
 
@@ -79,7 +83,7 @@ class BotModel
         Context::write($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId(), $context);
     }
 
-    public function getContext() : string
+    public function getContext(): string
     {
         return Context::read($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId());
     }
@@ -97,7 +101,7 @@ class BotModel
     public function getPreset(string $preset, string $type)
     {
         $presets = '';
-        switch($type){
+        switch ($type) {
             case 'message':
                 $presets = $this->messagePresets;
                 break;
@@ -113,12 +117,12 @@ class BotModel
 
         $langTable = $this->languageTable;
         $lang = $this->language;
-        for($i = 0, $ltKeys = array_keys($langTable);$i < count($ltKeys);$i++){
-            if($ltKeys[$i] == $lang){
+        for ($i = 0, $ltKeys = array_keys($langTable); $i < count($ltKeys); $i++) {
+            if ($ltKeys[$i] == $lang) {
                 $offset = $langTable[$ltKeys[$i]];
-                for($j = 0, $msKeys = array_keys($presets);$j < count($msKeys);$j++){
-                    if($preset == $msKeys[$j]){
-                        if(!isset($presets[$msKeys[$j]][$offset])) return $presets[$msKeys[$j]][0];
+                for ($j = 0, $msKeys = array_keys($presets); $j < count($msKeys); $j++) {
+                    if ($preset == $msKeys[$j]) {
+                        if (!isset($presets[$msKeys[$j]][$offset])) return $presets[$msKeys[$j]][0];
                         return $presets[$msKeys[$j]][$offset];
                     }
                 }
