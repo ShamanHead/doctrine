@@ -24,7 +24,10 @@ $metadata->mapField(array(
 $metadata->mapField(array(
     'fieldName' => 'language',
     'type' => 'string',
-    'length' => 10
+    'length' => 10,
+    'options' => [
+        'default' => ''
+    ]
 ));
 
 $metadata->mapField(array(
@@ -36,7 +39,10 @@ $metadata->mapField(array(
 $metadata->mapField(array(
     'fieldName' => 'context',
     'type' => 'string',
-    'length' => 100
+    'length' => 100,
+    'options' => [
+        'default' => ''
+    ]
 ));
 
 $metadata->mapField(array(
