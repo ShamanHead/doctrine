@@ -2,8 +2,6 @@
 
 namespace Controller;
 
-require_once "config/bootstrap.php";
-
 class UserModel
 {
 
