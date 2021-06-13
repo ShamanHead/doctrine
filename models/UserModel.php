@@ -8,7 +8,7 @@ class UserModel
     function __construct($entityManager,string $userId){
         $this->userId = $userId;
         $this->EM = $entityManager;
-        $repo = $this->EM->getRepository('User');
+        $repo = $this->EM->getRepository('Entities\User');
         $this->instanse = $repo->findBy([
             'userId' => $userId
         ]);
