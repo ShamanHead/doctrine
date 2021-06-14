@@ -188,7 +188,7 @@ class BotModel
     public function sendMessage(string $preset)
     {
         $this->addToFlow([
-            'text' => $this->getPreset($preset, 'message')
+            'text' => $this->getPreset($preset, $this->messagePresets)
         ]);
     }
 
