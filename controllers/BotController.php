@@ -55,10 +55,12 @@ switch($__CALLBACK_DATA){
 
 switch($__CONTEXT){
     case 'new_note':
-        $botModel->sendMessage('new_note_confirmed');
-        $botModel->sendKeyboard('main');
-        $botModel->run('sendMessage');
-        $botModel->setContext('main_menu');
+        if($__MESSAGE != 'back_to_menu'){
+            $botModel->sendMessage('new_note_confirmed');
+            $botModel->sendKeyboard('main');
+            $botModel->run('sendMessage');
+            $botModel->setContext('main_menu');
+        }
         break;
     case '':
         $botModel->sendInlineKeyboard('langchse');
