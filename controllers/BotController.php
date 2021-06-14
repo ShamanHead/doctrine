@@ -103,7 +103,7 @@ switch($__PRESET_MESSAGE){
             $botModel->sendMessage('notes');
         }else{
             for($i = 0;$i < count($tasks);$i++){
-                $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName()], true);
+                $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName(), 'count' => $i, 'done' => 'no'], true);
             }
         }
         $botModel->sendKeyboard('notes');
