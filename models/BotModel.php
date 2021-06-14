@@ -111,7 +111,7 @@ class BotModel
 
     public function getMessageText()
     {
-        return $this->getPreset($this->InputHandle->getMessageText(), $this->responsePresets);
+        return $this->getPresetName($this->InputHandle->getMessageText(), $this->responsePresets);
     }
 
     public function getCallBackData()
@@ -168,6 +168,21 @@ class BotModel
         }
 
         throw new \Exception('Preset not found');
+    }
+
+    public function getPresetName($value, array $presetsTable)
+    {
+        $langTable = $this->languageTable;
+        $lang = $this->language;
+        for ($j = 0, $msKeys = array_keys($presetsTable); $j < count($msKeys); $j++) {
+            for($x = 0, $contents = $presetsTable[$msKeys[$j]];$x < count($contents);$x++){
+                if ($contents[$x] == $value) {
+                    return $msKeys[$j];
+                }
+            }
+        }
+
+        return null;
     }
 
     public function sendMessage(string $preset)
