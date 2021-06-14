@@ -21,7 +21,8 @@ class BotModel
     private $messagePresets = [
         'hello' => ['Добро пожаловать!', 'Hello there'],
         'error' => ['Произошла ошибка.', 'An error has occurred'],
-        'langchse' => ['Please, choose your language']
+        'langchse' => ['Please, choose your language'],
+        'sorry' => ['Извините, но такой команды нет.', 'Sorry, there is no command like this']
     ];
 
     private $flow;
