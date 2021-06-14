@@ -25,6 +25,12 @@ class BotModel
         'sorry' => ['Извините, но такой команды нет.', 'Sorry, there is no command like this']
     ];
 
+    private $responsePresets = [
+        'about' => ['О проекте', 'About'],
+        'settings' => ['Настройки', 'Settings'],
+        'notes' => ['Мои заметки', 'My notes']
+    ];
+
     private $flow;
 
     private $keyboardPresets = [
@@ -61,7 +67,7 @@ class BotModel
     ];
 
     private $inlinePresets = [
-        'langchse' => [[[[['Русский', 'lanch_ru']], [['English', 'lanch_eng']]],false, false, false]]
+        'langchse' => [[[[['Русский', 'lanch_ru']], [['English', 'lanch_eng']]], false, false, false]]
     ];
 
     private $languageTable = [
@@ -81,7 +87,8 @@ class BotModel
         return true;
     }
 
-    public function deleteContext(){
+    public function deleteContext()
+    {
         Context::delete($this->bot, $this->InputHandle->getChatId(), $this->InputHandle->getUserId());
     }
 
@@ -102,8 +109,9 @@ class BotModel
         }
     }
 
-    public function getMessageText(){
-        return $this->InputHandle->getMessageText();
+    public function getMessageText()
+    {
+        return $this->getPreset($this->InputHandle->getMessageText(), $this->responsePresets);
     }
 
     public function getCallBackData()
@@ -113,13 +121,13 @@ class BotModel
 
     public function sendInlineKeyboard($preset)
     {
-        $keyboard = $this->getPreset($preset, 'inline');
+        $keyboard = $this->getPreset($preset, $this->inlinePresets);
         $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($keyboard[0], $keyboard[1], $keyboard[2], $keyboard[3])]);
     }
 
     public function sendKeyboard($preset)
     {
-        $keyboard = $this->getPreset($preset, 'keyboard');
+        $keyboard = $this->getPreset($preset, $this->keyboardPresets);
         $this->addToFlow(['reply_markup' => Utils::buildKeyboard($keyboard[0], $keyboard[1], $keyboard[2], $keyboard[3])]);
     }
 
@@ -143,32 +151,17 @@ class BotModel
         return $this->bot;
     }
 
-    public function getPreset(string $preset, string $type)
+    public function getPreset(string $preset, array $presetsTable)
     {
-        $presets = '';
-        switch ($type) {
-            case 'message':
-                $presets = $this->messagePresets;
-                break;
-            case 'inline':
-                $presets = $this->inlinePresets;
-                break;
-            case 'keyboard':
-                $presets = $this->keyboardPresets;
-                break;
-            default:
-                throw new \Exception('Undefined preset type in');
-        }
-
         $langTable = $this->languageTable;
         $lang = $this->language;
         for ($i = 0, $ltKeys = array_keys($langTable); $i < count($ltKeys); $i++) {
             if ($ltKeys[$i] == $lang) {
                 $offset = $langTable[$ltKeys[$i]];
-                for ($j = 0, $msKeys = array_keys($presets); $j < count($msKeys); $j++) {
+                for ($j = 0, $msKeys = array_keys($presetsTable); $j < count($msKeys); $j++) {
                     if ($preset == $msKeys[$j]) {
-                        if (!isset($presets[$msKeys[$j]][$offset])) return $presets[$msKeys[$j]][0];
-                        return $presets[$msKeys[$j]][$offset];
+                        if (!isset($presetsTable[$msKeys[$j]][$offset])) return $presetsTable[$msKeys[$j]][0];
+                        return $presetsTable[$msKeys[$j]][$offset];
                     }
                 }
             }
@@ -192,15 +185,18 @@ class BotModel
         ]);
     }
 
-    public function getUserId(){
+    public function getUserId()
+    {
         return $this->InputHandle->getUserId();
     }
 
-    public function getChatId(){
+    public function getChatId()
+    {
         return $this->InputHandle->getChatId();
     }
 
-    public function getToken(){
+    public function getToken()
+    {
         return $this->token;
     }
 

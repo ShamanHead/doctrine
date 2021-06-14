@@ -63,9 +63,14 @@ switch($__CONTEXT){
 }
 
 switch($__MESSAGE){
+    case 'about':
+    case 'settings':
+    case 'notes':
+        $botModel->sendMessageAnyway('Тест');
+        break;
     default:
         $botModel->sendMessage('sorry');
-        $botModel->sendKeyboard('main_menu');
+        $botModel->sendKeyboard('main');
         $botModel->run('sendMessage');
         break;
 }
