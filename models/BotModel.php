@@ -33,7 +33,7 @@ class BotModel
         'new_note' => ['Пожалуйста, напишите название заметки', 'Please, write name for new note'],
         'new_note_confirmed' => ['Новая запись создана успешно!', 'New note created!'],
         'new_note_description' => ['Теперь напишите описание заметки', 'Now, write note description'],
-        'dyn_note' => ['{name}']
+        'dyn_note' => ["{name}\n"]
 
     ];
 
