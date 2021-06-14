@@ -104,6 +104,28 @@ class BotModel
                 false,
                 false
             ],
+        ],
+        'back' => [
+            [
+                [
+                    [
+                        ['Назад']
+                    ]
+                ],
+                true,
+                false,
+                false
+            ],
+            [
+                [
+                    [
+                        ['Back']
+                    ]
+                ],
+                true,
+                false,
+                false
+            ],
         ]
     ];
 

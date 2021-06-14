@@ -70,13 +70,14 @@ switch($__CONTEXT){
 
 switch($__MESSAGE){
     case 'new_note':
-        $botModel->sendMessage('back_to_menu');
-        $botModel->sendKeyboard('main');
+        $botModel->sendMessage('new_note');
+        $botModel->sendKeyboard('back');
         $botModel->setContext('new_note');
         $botModel->run('sendMessage');
         break;
     case 'back_to_menu':
         $botModel->sendMessage('back_to_menu');
+        $botModel->setContext('main_menu');
         $botModel->sendKeyboard('main');
         $botModel->run('sendMessage');
         break;
@@ -96,8 +97,10 @@ switch($__MESSAGE){
         $botModel->run('sendMessage');
         break;
     default:
-        $botModel->sendMessage('sorry');
-        $botModel->sendKeyboard('main');
-        $botModel->run('sendMessage');
+        if($__CONTEXT == 'main_menu'){
+            $botModel->sendMessage('sorry');
+            $botModel->sendKeyboard('main');
+            $botModel->run('sendMessage');
+        }
         break;
 }
