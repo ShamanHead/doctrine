@@ -107,7 +107,7 @@ switch($__PRESET_MESSAGE){
                 if($done === true){
                     $done = "âœ…";
                 }else{
-                    $done = "âŒ"
+                    $done = "âŒ";
                 }
                 $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName(), 'count' => $i+1, 'done' => 'âŒ'], true);
             }
