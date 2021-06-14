@@ -10,11 +10,11 @@ class Task
 
     protected $name;
 
-    protected $description;
+    protected $description = '';
 
     protected $userId;
 
-    protected $done;
+    protected $done = false;
 
     /**
      * @return mixed

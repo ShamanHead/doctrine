@@ -22,6 +22,7 @@ $botModel->sqlCredentials(
 $__USER = new UserModel($entityManager,$botModel);
 $__TASK = new TaskModel($entityManager);
 $botModel->setLanguage($__USER->getLanguage());
+$__PRESET_MESSAGE = $botModel->getPresetMessage();
 $__MESSAGE = $botModel->getMessageText();
 $__CONTEXT = $botModel->getContext();
 $__CALLBACK_DATA = $botModel->getCallBackData();
@@ -58,8 +59,8 @@ switch($__CALLBACK_DATA){
 switch($__CONTEXT){
     case 'new_note':
         if($__MESSAGE != 'back_to_menu'){
-            $botModel->sendMessage('new_note_confirmed');
-            $__TASK->addTask($botModel->getUserId(), 'wejwnefjwe', 'engejrgnejrg');
+            $botModel->sendMessage('new_note_description');
+            $__TASK->addTask($botModel->getUserId(), $__MESSAGE);
             $botModel->sendKeyboard('main');
             $botModel->run('sendMessage');
             $botModel->setContext('main_menu');

@@ -15,15 +15,20 @@ class TaskModel
         $this->repository = $this->EM->getRepository('Entities\Task');
     }
 
-    public function addTask($userId, $name, $description)
+    public function addTask($userId, $name)
     {
         $task = new Task();
         $task->setName($name);
         $task->setUserId($userId);
-        $task->setDescription($description);
-        $task->setDone(false);
         $this->EM->persist($task);
         $this->EM->flush();
+    }
+
+    public function setDescription($userId, $name){
+        $task = $this->repo->findBy([
+                'userId' => $userId,
+                'name' => $id,
+        ]);
     }
 
     public function deleteTask($id)

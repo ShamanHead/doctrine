@@ -32,6 +32,7 @@ class BotModel
         'back_to_menu' => ['Вы вернулись в главное меню', 'You now at main menu'],
         'new_note' => ['Пожалуйста, напишите название заметки', 'Please, write name for new note'],
         'new_note_confirmed' => ['Новая запись создана успешно!', 'New note created!'],
+        'new_note_description' => ['Теперь напишите описание заметки', 'Now, write note description'],
         'dynamic_test' => ['This is {name} dinamic {two} test']
 
     ];
@@ -186,6 +187,11 @@ class BotModel
     }
 
     public function getMessageText()
+    {
+        return $this->InputHandle->getMessageText();
+    }
+
+    public function getPresetMessage()
     {
         return $this->getPresetName($this->InputHandle->getMessageText(), $this->responsePresets);
     }
