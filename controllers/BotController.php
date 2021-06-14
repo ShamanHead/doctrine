@@ -105,11 +105,11 @@ switch($__PRESET_MESSAGE){
             for($i = 0;$i < count($tasks);$i++){
                 $done = $tasks[$i]->getDone();
                 if($done === true){
-                    $done = "âœ…";
+                    $done = "✅";
                 }else{
-                    $done = "âŒ";
+                    $done = "❌";
                 }
-                $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName(), 'count' => $i+1, 'done' => 'âŒ'], true);
+                $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName(), 'count' => $i+1, 'done' => $done], true);
             }
         }
         $botModel->sendKeyboard('notes');
