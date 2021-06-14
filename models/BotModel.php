@@ -43,7 +43,8 @@ class BotModel
         'notes' => ['Мои заметки', 'My notes'],
         'back_to_menu' => ['Назад', 'Back'],
         'new_note' => ['Создать новую заметку', 'Create new note'],
-        'delete_note' => ['Удалить заметку', 'Delete note']
+        'delete_note' => ['Удалить заметку', 'Delete note'],
+        'change_lang' => ['Изменить язык', 'Change language']
     ];
 
     private $flow;
@@ -128,11 +129,35 @@ class BotModel
                 false,
                 false
             ],
+        ],
+        'settings' => [
+            [
+                [
+                    [
+                        ['Изменить язык'],
+                        ['Назад']
+                    ]
+                ],
+                true,
+                false,
+                false
+            ],
+            [
+                [
+                    [
+                        ['Change language'],
+                        ['Back']
+                    ]
+                ],
+                true,
+                false,
+                false
+            ],
         ]
     ];
 
     private $inlinePresets = [
-        'langchse' => [[[[['Русский', 'lanch_ru']], [['English', 'lanch_eng']]], false, false, false]]
+        'langchse' => [[[[['Русский🇷🇺', 'lanch_ru']], [['English🇬🇧', 'lanch_eng']]], false, false, false]]
     ];
 
     private $languageTable = [

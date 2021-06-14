@@ -87,6 +87,12 @@ switch($__PRESET_MESSAGE){
         $botModel->sendKeyboard('main');
         $botModel->run('sendMessage');
         break;
+    case 'change_lang':
+        $botModel->sendInlineKeyboard('langchse');
+        $botModel->sendMessage('langchse');
+        $botModel->run('sendMessage');
+        $botModel->setContext('langchse');
+        break;
     case 'about':
         $botModel->sendMessage('about');
         $botModel->sendKeyboard('main');
@@ -94,7 +100,7 @@ switch($__PRESET_MESSAGE){
         break;
     case 'settings':
         $botModel->sendMessage('settings');
-        $botModel->sendKeyboard('main');
+        $botModel->sendKeyboard('settings');
         $botModel->run('sendMessage');
         break;
     case 'notes':
