@@ -59,7 +59,7 @@ switch($__CONTEXT){
     case 'new_note':
         if($__MESSAGE != 'back_to_menu'){
             $botModel->sendMessage('new_note_confirmed');
-            $__TASK->addTask($botModel->getUserId(), $__MESSAGE, 'engejrgnejrg');
+            $__TASK->addTask($botModel->getUserId(), 'wejwnefjwe', 'engejrgnejrg');
             $botModel->sendKeyboard('main');
             $botModel->run('sendMessage');
             $botModel->setContext('main_menu');
