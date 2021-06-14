@@ -166,21 +166,23 @@ class BotModel
         return true;
     }
 
-    private function addToFlow(array $data)
+    private function addToFlow(array $data, bool $merge = false)
     {
         for ($i = 0, $keys = array_keys($data); $i < count($keys); $i++) {
-            $this->flow[$keys[$i]] = $data[$keys[$i]];
+            if($merge === true){
+                $this->flow[$keys[$i]] .= $data[$keys[$i]];
+            }else $this->flow[$keys[$i]] = $data[$keys[$i]];
         }
     }
 
-    public function sendDynamicMessage(string $preset, array $data){
+    public function sendDynamicMessage(string $preset, array $data, bool $merge = false){
         $text = $this->getPreset($preset, $this->messagePresets);
         for($i = 0, $keys = array_keys($data);$i < count($keys);$i++){
             $text = preg_replace('/{'.$keys[$i].'}/', $data[$keys[$i]], $text);
         }
         $this->addToFlow([
             'text' => $text
-        ]);
+        ], $merge);
     }
 
     public function getMessageText()
