@@ -20,6 +20,7 @@ $botModel->sqlCredentials(
 
 $__USER = new UserModel($entityManager,$botModel);
 $botModel->setLanguage($__USER->getLanguage());
+$__MESSAGE = $botModel->getMessageText();
 $__CONTEXT = $botModel->getContext();
 $__CALLBACK_DATA = $botModel->getCallBackData();
 
@@ -58,5 +59,13 @@ switch($__CONTEXT){
         $botModel->sendMessage('langchse');
         $botModel->run('sendMessage');
         $botModel->setContext('langchse');
+        break;
+}
+
+switch($__MESSAGE){
+    default:
+        $botModel->sendMessage('sorry');
+        $botModel->sendKeyboard('menu');
+        $botModel->run('sendMessage');
         break;
 }
