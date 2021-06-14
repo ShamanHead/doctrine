@@ -15,6 +15,14 @@ class TaskModel
         $this->repository = $this->EM->getRepository('Entities\Task');
     }
 
+    public function getTasks($userId)
+    {
+        $tasks = $this->repository->findBy([
+            'userId' => $userId
+        ]);
+        return $tasks;
+    }
+
     public function addTask($userId, $name)
     {
         $task = new Task();
@@ -25,7 +33,7 @@ class TaskModel
     }
 
     public function setDescription($userId, $name){
-        $task = $this->repo->findBy([
+        $task = $this->repository->findBy([
                 'userId' => $userId,
                 'name' => $id,
         ]);
