@@ -54,6 +54,12 @@ switch($__CALLBACK_DATA){
 }
 
 switch($__CONTEXT){
+    case 'new_note':
+        $botModel->sendMessage('new_note_confirmed');
+        $botModel->sendKeyboard('main');
+        $botModel->run('sendMessage');
+        $botModel->setContext('main_menu');
+        break;
     case '':
         $botModel->sendInlineKeyboard('langchse');
         $botModel->sendMessage('langchse');
@@ -63,6 +69,17 @@ switch($__CONTEXT){
 }
 
 switch($__MESSAGE){
+    case 'new_note':
+        $botModel->sendMessage('back_to_menu');
+        $botModel->sendKeyboard('main');
+        $botModel->setContext('new_note');
+        $botModel->run('sendMessage');
+        break;
+    case 'back_to_menu':
+        $botModel->sendMessage('back_to_menu');
+        $botModel->sendKeyboard('main');
+        $botModel->run('sendMessage');
+        break;
     case 'about':
         $botModel->sendMessage('about');
         $botModel->sendKeyboard('main');
@@ -75,7 +92,7 @@ switch($__MESSAGE){
         break;
     case 'notes':
         $botModel->sendMessage('notes');
-        $botModel->sendKeyboard('main');
+        $botModel->sendKeyboard('notes');
         $botModel->run('sendMessage');
         break;
     default:

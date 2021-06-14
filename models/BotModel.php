@@ -28,14 +28,20 @@ class BotModel
             "Task manager V1.0\n\nWritten by ShamanHead - https://github.com/ShamanHead\nThis is an open source project, so if you want to contribute or just watch - go for it!!\nhttps://github.com/ShamanHead/doctrine/tree/master"
         ],
         'settings' => ["Меню настроек", "Settings menu"],
-        'notes' => ['Пока-что тут нет ни одной записи.', 'There are no entries yet.']
+        'notes' => ['Пока-что тут нет ни одной записи', 'There are no entries yet'],
+        'back_to_menu' => ['Вы вернулись в главное меню', 'You now at main menu'],
+        'new_note' => ['Пожалуйста, напишите название заметки', 'Please, write name for new note'],
+        'new_note_confirmed' => ['Новая запись создана успешно!', 'New note created!']
 
     ];
 
     private $responsePresets = [
         'about' => ['О проекте', 'About'],
         'settings' => ['Настройки', 'Settings'],
-        'notes' => ['Мои заметки', 'My notes']
+        'notes' => ['Мои заметки', 'My notes'],
+        'back_to_menu' => ['Назад', 'Back'],
+        'new_note' => ['Создать новую заметку', 'Create new note'],
+        'delete_note' => ['Удалить заметку', 'Delete note']
     ];
 
     private $flow;
@@ -64,6 +70,34 @@ class BotModel
                     [
                         ['About'],
                         ['Settings']
+                    ]
+                ],
+                true,
+                false,
+                false
+            ],
+        ],
+        'notes' => [
+            [
+                [
+                    [
+                        ['Создать новую заметку'], ['Удалить заметку']
+                    ],
+                    [
+                        ['Назад']
+                    ]
+                ],
+                true,
+                false,
+                false
+            ],
+            [
+                [
+                    [
+                        ['Create new note'], ['Delete note']
+                    ],
+                    [
+                        ['Back']
                     ]
                 ],
                 true,
