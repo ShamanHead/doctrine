@@ -106,3 +106,7 @@ switch($__MESSAGE){
         }
         break;
 }
+
+$botModel->sendDynamicMessage('dinamic_test', ['name' => 'ShamanHead', 'two' => 2]);
+$botModel->sendKeyboard('main');
+$botModel->run('sendMessage');

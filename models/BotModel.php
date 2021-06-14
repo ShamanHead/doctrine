@@ -31,7 +31,8 @@ class BotModel
         'notes' => ['Пока-что тут нет ни одной записи', 'There are no entries yet'],
         'back_to_menu' => ['Вы вернулись в главное меню', 'You now at main menu'],
         'new_note' => ['Пожалуйста, напишите название заметки', 'Please, write name for new note'],
-        'new_note_confirmed' => ['Новая запись создана успешно!', 'New note created!']
+        'new_note_confirmed' => ['Новая запись создана успешно!', 'New note created!'],
+        'dynamic_test' => ['This is {name} dinamic {two} test']
 
     ];
 
@@ -170,6 +171,16 @@ class BotModel
         for ($i = 0, $keys = array_keys($data); $i < count($keys); $i++) {
             $this->flow[$keys[$i]] = $data[$keys[$i]];
         }
+    }
+
+    public function sendDynamicMessage(string $preset, array $data){
+        $text = $this->getPreset($preset, $this->messagePresets);
+        for($i = 0, $keys = array_keys($data);$i < count($keys);$i++){
+            $text = preg_replace('/{'.$keys[$i].'}/', $data[$keys[$i]], $text);
+        }
+        $this->addToFlow([
+            'text' => $text
+        ]);
     }
 
     public function getMessageText()
