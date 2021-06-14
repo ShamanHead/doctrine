@@ -65,7 +65,7 @@ switch($__CONTEXT){
 switch($__MESSAGE){
     default:
         $botModel->sendMessage('sorry');
-        $botModel->sendKeyboard('menu');
+        $botModel->sendKeyboard('main_menu');
         $botModel->run('sendMessage');
         break;
 }
