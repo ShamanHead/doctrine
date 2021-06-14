@@ -74,7 +74,7 @@ switch($__CONTEXT){
         break;
 }
 
-switch($__MESSAGE){
+switch($__PRESET_MESSAGE){
     case 'new_note':
         $botModel->sendMessage('new_note');
         $botModel->sendKeyboard('back');
