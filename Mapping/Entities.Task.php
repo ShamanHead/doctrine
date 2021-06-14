@@ -1,6 +1,7 @@
 <?php
 
 $metadata->setPrimaryTable(['name' => 'tasks']);
+$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetadata::GENERATOR_TYPE_AUTO);
 
 $metadata->mapField(array(
     'id' => true,

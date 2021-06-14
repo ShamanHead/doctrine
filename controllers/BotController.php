@@ -5,6 +5,7 @@ namespace Controller;
 use Colyt\Core as Core;
 
 use Model\BotModel as BotModel;
+use Model\TaskModel as TaskModel;
 use Model\UserModel as UserModel;
 
 $botModel = new BotModel('1867256706:AAHca7ts3DcGDFxF8iz0bB1euoTAJY4d1hY');
@@ -19,6 +20,7 @@ $botModel->sqlCredentials(
 );
 
 $__USER = new UserModel($entityManager,$botModel);
+$__TASK = new TaskModel($entityManager);
 $botModel->setLanguage($__USER->getLanguage());
 $__MESSAGE = $botModel->getMessageText();
 $__CONTEXT = $botModel->getContext();
@@ -57,6 +59,7 @@ switch($__CONTEXT){
     case 'new_note':
         if($__MESSAGE != 'back_to_menu'){
             $botModel->sendMessage('new_note_confirmed');
+            $__TASK->addTask($botModel->getUserId(), $__MESSAGE, 'engejrgnejrg');
             $botModel->sendKeyboard('main');
             $botModel->run('sendMessage');
             $botModel->setContext('main_menu');
@@ -106,8 +109,3 @@ switch($__MESSAGE){
         }
         break;
 }
-
-$botModel->sendDynamicMessage('dynamic_test', ['name' => 'ShamanHead', 'two' => 2], true);
-$botModel->sendDynamicMessage('dynamic_test', ['name' => 'ShamanHead', 'two' => 2], true);
-$botModel->sendKeyboard('main');
-$botModel->run('sendMessage');

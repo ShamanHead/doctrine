@@ -261,11 +261,11 @@ class BotModel
         return null;
     }
 
-    public function sendMessage(string $preset)
+    public function sendMessage(string $preset, bool $merge = false)
     {
         $this->addToFlow([
             'text' => $this->getPreset($preset, $this->messagePresets)
-        ]);
+        ], $merge);
     }
 
     public function sendMessageAnyway(string $message)

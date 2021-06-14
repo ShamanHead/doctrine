@@ -12,6 +12,6 @@ view: site/index.php;
 
 { bot }
 name: bot;
-models: User, Bot;
+models: Task, User, Bot;
 controllers: Bot;
 view: ;
