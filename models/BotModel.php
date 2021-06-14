@@ -24,9 +24,9 @@ class BotModel
         'langchse' => ['Please, choose your language'],
         'sorry' => ['Извините, но такой команды нет.', 'Sorry, there is no command like this'],
         'about' => ['Task manager V1.0
-        Написал ShamanHead - https://github.com/ShamanHead
-        У данного проекта есть открытый исходный код, если хотите помочь в его развитии или просто посмотреть - дерзайте!
-        https://github.com/ShamanHead/doctrine/tree/master
+Написал ShamanHead - https://github.com/ShamanHead
+У данного проекта есть открытый исходный код, если хотите помочь в его развитии или просто посмотреть - дерзайте!
+https://github.com/ShamanHead/doctrine/tree/master
         ',
             "Task manager V1.0\nWritten by ShamanHead - https://github.com/ShamanHead\nThis is an open source project, so if you want to contribute or just watch - go for it!!\nhttps://github.com/ShamanHead/doctrine/tree/master"
         ],
