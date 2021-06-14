@@ -99,8 +99,12 @@ switch($__PRESET_MESSAGE){
         break;
     case 'notes':
         $tasks = $__TASK->getTasks($botModel->getUserId());
-        for($i = 0;$i < count($tasks);$i++){
-            $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName()], true);
+        if(count($tasks) < 1){
+            $botModel->sendMessage('notes');
+        }else{
+            for($i = 0;$i < count($tasks);$i++){
+                $botModel->sendDynamicMessage('dyn_note', ['name' => $tasks[$i]->getName()], true);
+            }
         }
         $botModel->sendKeyboard('notes');
         $botModel->run('sendMessage');
