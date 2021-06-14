@@ -30,22 +30,32 @@ class BotModel
         'main' => [
             [
                 [
-                    ['Мои заметки']
+                    [
+                        ['Мои заметки']
+                    ],
+                    [
+                        ['О проекте'],
+                        ['Настройки']
+                    ]
                 ],
-                [
-                    ['О проекте'],
-                    ['Настройки']
-                ]
+                true,
+                true,
+                true
             ],
             [
                 [
-                    ['My notes']
+                    [
+                        ['My notes']
+                    ],
+                    [
+                        ['About'],
+                        ['Settings']
+                    ]
                 ],
-                [
-                    ['About'],
-                    ['Settings']
-                ]
-            ]
+                true,
+                true,
+                true
+            ],
         ]
     ];
 
@@ -103,7 +113,8 @@ class BotModel
 
     public function sendKeyboard($preset)
     {
-        $this->addToFlow(['reply_markup' => Utils::buildKeyboard($this->getPreset($preset, 'keyboard'))]);
+        $keyboard = $this->getPreset($preset, 'keyboard');
+        $this->addToFlow(['reply_markup' => Utils::buildKeyboard($keyboard[0], $keyboard[1], $keyboard[2], $keyboard[3])]);
     }
 
     public function setContext(string $context)
