@@ -134,7 +134,9 @@ class BotModel
             [
                 [
                     [
-                        ['Изменить язык'],
+                        ['Изменить язык']
+                    ],
+                    [
                         ['Назад']
                     ]
                 ],
@@ -145,7 +147,9 @@ class BotModel
             [
                 [
                     [
-                        ['Change language'],
+                        ['Change language']
+                    ],
+                    [
                         ['Back']
                     ]
                 ],
