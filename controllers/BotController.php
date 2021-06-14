@@ -100,6 +100,7 @@ switch($__PRESET_MESSAGE){
     case 'notes':
         $tasks = $__TASK->getTasks($botModel->getUserId());
         if(count($tasks) < 1){
+            $botModel->sendMessageAnyway(print_r($tasks,1));
             $botModel->sendMessage('notes');
         }else{
             for($i = 0;$i < count($tasks);$i++){
