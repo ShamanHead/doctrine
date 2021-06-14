@@ -39,8 +39,8 @@ class BotModel
                     ]
                 ],
                 true,
-                true,
-                true
+                false,
+                false
             ],
             [
                 [
@@ -53,14 +53,32 @@ class BotModel
                     ]
                 ],
                 true,
-                true,
-                true
+                false,
+                false
             ],
         ]
     ];
 
     private $inlinePresets = [
-        'langchse' => [[[['Русский', 'lanch_ru']], [['English', 'lanch_eng']]]]
+        'langchse' => [
+            [
+                [
+                    [
+                    ['Русский', 'lanch_ru']
+                    ],
+                    false,
+                    false,
+                    false],
+                [
+                    [
+                    ['English', 'lanch_eng']
+                    ],
+                    false,
+                    false,
+                    false
+                ]
+            ]
+        ]
     ];
 
     private $languageTable = [
@@ -108,7 +126,8 @@ class BotModel
 
     public function sendInlineKeyboard($preset)
     {
-        $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($this->getPreset($preset, 'inline'))]);
+        $keyboard = $this->getPreset($preset, 'inline');
+        $this->addToFlow(['reply_markup' => Utils::buildInlineKeyboard($keyboard[0], $keyboard[1], $keyboard[2], $keyboard[3])]);
     }
 
     public function sendKeyboard($preset)
