@@ -22,7 +22,20 @@ class BotModel
         'hello' => ['Добро пожаловать!', 'Hello there'],
         'error' => ['Произошла ошибка.', 'An error has occurred'],
         'langchse' => ['Please, choose your language'],
-        'sorry' => ['Извините, но такой команды нет.', 'Sorry, there is no command like this']
+        'sorry' => ['Извините, но такой команды нет.', 'Sorry, there is no command like this'],
+        'about' => ['Task manager V1.0
+        \nНаписал ShamanHead - https://github.com/ShamanHead
+        \nУ данного проекта есть открытый исходный код, если хотите помочь в его развитии или просто посмотреть - дерзайте!
+        \nhttps://github.com/ShamanHead/doctrine/tree/master
+        ',
+            'Task manager V1.0
+        \nWritten by ShamanHead - https://github.com/ShamanHead
+        \nThis is an open source project, so if you want to contribute or just watch - go for it!!
+        \nhttps://github.com/ShamanHead/doctrine/tree/master'
+        ],
+        'settings' => ["Меню настроек", "Settings menu"],
+        'notes' => ['Пока-что тут нет ни одной записи.', 'There are no entries yet.']
+
     ];
 
     private $responsePresets = [
